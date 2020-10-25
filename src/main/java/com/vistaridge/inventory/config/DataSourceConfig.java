@@ -1,4 +1,4 @@
-package config;
+package com.vistaridge.inventory.config;
 
 import javax.sql.DataSource;
 
