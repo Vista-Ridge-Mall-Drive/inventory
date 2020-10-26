@@ -10,6 +10,7 @@ import com.vistaridge.inventory.entities.User;
 import com.vistaridge.inventory.repository.InventoryRepository;
 import com.vistaridge.inventory.repository.UserRepository;
 
+import org.slf4j.LoggerFactory;
 
 @SpringBootApplication
 public class InventoryApplication {
@@ -18,11 +19,12 @@ public class InventoryApplication {
 		SpringApplication.run(InventoryApplication.class, args);
 	}
 
-	
+	org.slf4j.Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
 
     @Bean
     public CommandLineRunner run(UserRepository userRepository, InventoryRepository inventoryRepository) throws Exception {
         return (String[] args) -> {
+          logger.info("CommandLineRunner run...start");
           User user1 = new User("John", "john@domain.com");
           User user2 = new User("Julie", "julie@domain.com");
           userRepository.save(user1);
@@ -31,6 +33,7 @@ public class InventoryApplication {
           Inventory item1 = new Inventory("MealOne", "Meal One", "Beef noodle");
           inventoryRepository.save(item1);
           inventoryRepository.findAll().forEach(item -> System.out.println(item.getName()));
+          logger.info("CommandLineRunner run...done");
         };
     }	
     
