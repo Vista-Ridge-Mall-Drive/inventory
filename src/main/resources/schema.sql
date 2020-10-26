@@ -23,6 +23,7 @@ CREATE TABLE inventory (
   desc 			VARCHAR(128) NOT NULL,
   unit_price 		FLOAT,
   qty_in_stock 		FLOAT,
+  unit_weight 		VARCHAR(128),
   reorder_level 	FLOAT,
   reorder_time_in_days 	FLOAT,
   reorder_qty   	FLOAT,

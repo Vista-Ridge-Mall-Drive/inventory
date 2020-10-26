@@ -36,13 +36,13 @@ public class InMemoryDBTest {
 	@Test
 	public void test1() {
 		logger.info("test1 start");
-        User user1 = new User("John1", "john1@domain.com");
-        User user2 = new User("Julie1", "julie1@domain.com");
+        User user1 = new User("JohnTest", "john1@domain.com");
+        User user2 = new User("JulieTest", "julie1@domain.com");
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.findAll().forEach(user -> System.out.println(user.getName()));	
         
-        Inventory item1 = new Inventory("MealOne111", "Meal One111", "Beef noodle111");
+        Inventory item1 = new Inventory("MealOneTest", "Meal One Test", "Beef noodle Test");
         inventoryRepository.save(item1);
         inventoryRepository.findAll().forEach(item -> System.out.println(item.getName()));     
         

@@ -18,6 +18,7 @@ public class Inventory {
     private String name;
     private String desc;
     private Float unit_price;	
+    private String unit_weight;
     private Float qty_in_stock;	
     private Float reorder_level;	
     private Float reorder_time_in_days;	
@@ -31,74 +32,103 @@ public class Inventory {
     	this.name = name;
     	this.desc = desc;
     }
-    
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDesc() {
 		return desc;
 	}
+
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+
 	public Float getUnit_price() {
 		return unit_price;
 	}
+
 	public void setUnit_price(Float unit_price) {
 		this.unit_price = unit_price;
 	}
+
+	public String getUnit_weight() {
+		return unit_weight;
+	}
+
+	public void setUnit_weight(String unit_weight) {
+		this.unit_weight = unit_weight;
+	}
+
 	public Float getQty_in_stock() {
 		return qty_in_stock;
 	}
+
 	public void setQty_in_stock(Float qty_in_stock) {
 		this.qty_in_stock = qty_in_stock;
 	}
+
 	public Float getReorder_level() {
 		return reorder_level;
 	}
+
 	public void setReorder_level(Float reorder_level) {
 		this.reorder_level = reorder_level;
 	}
+
 	public Float getReorder_time_in_days() {
 		return reorder_time_in_days;
 	}
+
 	public void setReorder_time_in_days(Float reorder_time_in_days) {
 		this.reorder_time_in_days = reorder_time_in_days;
 	}
+
 	public Float getReorder_qty() {
 		return reorder_qty;
 	}
+
 	public void setReorder_qty(Float reorder_qty) {
 		this.reorder_qty = reorder_qty;
 	}
+
 	public Boolean getDiscontinued() {
 		return discontinued;
 	}
+
 	public void setDiscontinued(Boolean discontinued) {
 		this.discontinued = discontinued;
 	}
+
 	@Override
 	public String toString() {
 		return "Inventory [id=" + id + ", code=" + code + ", name=" + name + ", desc=" + desc + ", unit_price="
-				+ unit_price + ", qty_in_stock=" + qty_in_stock + ", reorder_level=" + reorder_level
-				+ ", reorder_time_in_days=" + reorder_time_in_days + ", reorder_qty=" + reorder_qty + ", discontinued="
-				+ discontinued + "]";
+				+ unit_price + ", unit_weight=" + unit_weight + ", qty_in_stock=" + qty_in_stock + ", reorder_level="
+				+ reorder_level + ", reorder_time_in_days=" + reorder_time_in_days + ", reorder_qty=" + reorder_qty
+				+ ", discontinued=" + discontinued + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -113,8 +143,10 @@ public class Inventory {
 		result = prime * result + ((reorder_qty == null) ? 0 : reorder_qty.hashCode());
 		result = prime * result + ((reorder_time_in_days == null) ? 0 : reorder_time_in_days.hashCode());
 		result = prime * result + ((unit_price == null) ? 0 : unit_price.hashCode());
+		result = prime * result + ((unit_weight == null) ? 0 : unit_weight.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -171,8 +203,14 @@ public class Inventory {
 				return false;
 		} else if (!unit_price.equals(other.unit_price))
 			return false;
+		if (unit_weight == null) {
+			if (other.unit_weight != null)
+				return false;
+		} else if (!unit_weight.equals(other.unit_weight))
+			return false;
 		return true;
-	}	
+	}
+    
 
 
 
