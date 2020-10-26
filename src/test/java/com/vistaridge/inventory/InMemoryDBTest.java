@@ -6,6 +6,7 @@ package com.vistaridge.inventory;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +27,8 @@ public class InMemoryDBTest {
 	@Autowired
 	InventoryRepository inventoryRepository;
 
-	org.slf4j.Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
+	//org.slf4j.Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
+	Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
 	
 	@Before
 	public void setup()

@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
+import org.slf4j.Logger;
 import com.vistaridge.inventory.entities.Inventory;
 import com.vistaridge.inventory.entities.User;
 import com.vistaridge.inventory.repository.InventoryRepository;
@@ -19,7 +19,7 @@ public class InventoryApplication {
 		SpringApplication.run(InventoryApplication.class, args);
 	}
 
-	org.slf4j.Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
+	Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
 
     @Bean
     public CommandLineRunner run(UserRepository userRepository, InventoryRepository inventoryRepository) throws Exception {
