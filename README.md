@@ -10,3 +10,8 @@ Build:
   
 Target Environment:
   1. Netflix Architecture  
+  
+Dev Database:
+  1. connect to http://localhost:9090/h2
+  2. click connect button
+  3. edit application.properties file. change value of spring.datasource.url
