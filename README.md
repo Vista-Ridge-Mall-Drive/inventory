@@ -7,5 +7,5 @@ Purpose:
   
   
 Build:
-  mvn clean package
-  java -jar .\target\inventory-0.0.1-SNAPSHOT.jar
+  1. mvn clean package
+  2. java -jar .\target\inventory-0.0.1-SNAPSHOT.jar
