@@ -2,11 +2,17 @@ package com.vistaridge.inventory.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "delivery_details")
@@ -25,6 +31,11 @@ public class DeliveryDetails {
     private Date create_date;
     private Date post_date;
     private Boolean posted_flag;
+    
+    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "id")
+    //@JsonIgnore
+    //private DeliveryHeader deliveryHeader;
     
 	public long getId() {
 		return id;

@@ -1,11 +1,16 @@
 package com.vistaridge.inventory.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,10 @@ public class DeliveryHeader {
     private long user_id;
     private Date post_date;
     private Boolean posted_flag;
+    
+    //@OneToMany(mappedBy = "deliveryHeader", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    //private Set<DeliveryDetails> deliveryDetails = new HashSet<DeliveryDetails>();
+    private ArrayList<DeliveryDetails> deliveryDetails = new ArrayList<DeliveryDetails>();
     
 	public long getId() {
 		return id;

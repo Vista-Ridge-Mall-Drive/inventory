@@ -3,6 +3,8 @@ drop table if exists country;
 drop table if exists inventory;
 drop table if exists delivery_header;
 drop table if exists delivery_details;
+drop table if exists inventory_ledger_quantity;
+drop table if exists inventory_ledger_amount;
 
 create table USERS(
   ID int not null AUTO_INCREMENT,
@@ -16,7 +18,6 @@ CREATE TABLE country (
   name VARCHAR(128) NOT NULL,
   PRIMARY KEY (id)
 );
-
 
 CREATE TABLE inventory (
   id   			INTEGER      NOT NULL AUTO_INCREMENT,
@@ -32,6 +33,29 @@ CREATE TABLE inventory (
   discontinued  	BOOL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE inventory_ledger_quantity (
+  id   			INTEGER      NOT NULL AUTO_INCREMENT,
+  code 			VARCHAR(128) NOT NULL,
+  name 			VARCHAR(128) NOT NULL,
+  ref 			VARCHAR(128) NOT NULL,
+  debit 		FLOAT,
+  credit 		FLOAT,
+  post_date 	DATE,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE inventory_ledger_amount (
+  id   			INTEGER      NOT NULL AUTO_INCREMENT,
+  code 			VARCHAR(128) NOT NULL,
+  name 			VARCHAR(128) NOT NULL,
+  ref 			VARCHAR(128) NOT NULL,
+  debit 		FLOAT,
+  credit 		FLOAT,
+  post_date 	DATE,
+  PRIMARY KEY (id)
+);
+
 
 CREATE TABLE delivery_header (
   id   			INTEGER      NOT NULL AUTO_INCREMENT,
