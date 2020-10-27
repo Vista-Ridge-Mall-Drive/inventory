@@ -39,12 +39,12 @@ public class InventoryApplication {
     public CommandLineRunner run(UserRepository userRepository, InventoryRepository inventoryRepository) throws Exception {
         return (String[] args) -> {
           logger.info("CommandLineRunner run...start");
-          User user1 = new User("John", "john@domain.com");
-          User user2 = new User("Julie", "julie@domain.com");
+          User user1 = new User("John0", "john@domain.com");
+          User user2 = new User("Julie0", "julie@domain.com");
           userRepository.save(user1);
           userRepository.save(user2);
           userRepository.findAll().forEach(user -> System.out.println(user.getName()));
-          Inventory item1 = new Inventory("MealOne", "Meal One", "Beef noodle");
+          Inventory item1 = new Inventory("MealOne0", "Meal One0", "Beef noodle");
           inventoryRepository.save(item1);
           
           Inventory newItem = new Inventory();
@@ -58,7 +58,7 @@ public class InventoryApplication {
           inventoryRepository.findAll().forEach(item -> System.out.println(item.getName()));
           
           logger.info("getDeliveryDetailsByInventoryId(1)");
-          ArrayList<DeliveryDetails> list = deliveryDetailsRepository.getDeliveryDetailsByInventoryId(1);
+          ArrayList<DeliveryDetails> list = deliveryDetailsRepository.findByinventoryId(1);
           logger.info("CommandLineRunner run...done");
         };
     }	

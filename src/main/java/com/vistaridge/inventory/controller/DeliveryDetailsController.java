@@ -39,11 +39,11 @@ public class DeliveryDetailsController {
 	    return (List<DeliveryDetails>) deliveryDetailsRepository.findAll();
 	}	
 
-	@GetMapping("/deliverydetailsbyheader/{id}")
-	ArrayList<DeliveryDetails> allDetailsByHeader(@PathVariable Long id) {
-		logger.info("/deliverydetailsbyheader/" + id);
-	    return (ArrayList<DeliveryDetails>) deliveryDetailsRepository.getDeliveryDetailsByInventoryId(id);
-	}	
+//	@GetMapping("/deliverydetailsbyheader/{id}")
+//	ArrayList<DeliveryDetails> allDetailsByHeader(@PathVariable Long id) {
+//		logger.info("/deliverydetailsbyheader/" + id);
+//	    return (ArrayList<DeliveryDetails>) deliveryDetailsRepository.getDeliveryDetailsByInventoryId(id);
+//	}	
 	
 	@GetMapping("/deliverydetails/{id}")
 	DeliveryDetails getItem(@PathVariable Long id) {

@@ -3,6 +3,7 @@ package com.vistaridge.inventory.entities;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,9 @@ public class DeliveryDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;	
     private long header_id;
-    private long inventory_id;
+    
+    @Column(name = "inventory_id")
+    private long inventoryId;
     private String code;
     private String name;
     private String desc;
@@ -31,12 +34,6 @@ public class DeliveryDetails {
     private Date create_date;
     private Date post_date;
     private Boolean posted_flag;
-    
-    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id")
-    //@JsonIgnore
-    //private DeliveryHeader deliveryHeader;
-    
 	public long getId() {
 		return id;
 	}
@@ -49,11 +46,11 @@ public class DeliveryDetails {
 	public void setHeader_id(long header_id) {
 		this.header_id = header_id;
 	}
-	public long getInventory_id() {
-		return inventory_id;
+	public long getInventoryId() {
+		return inventoryId;
 	}
-	public void setInventory_id(long inventory_id) {
-		this.inventory_id = inventory_id;
+	public void setInventoryId(long inventoryId) {
+		this.inventoryId = inventoryId;
 	}
 	public String getCode() {
 		return code;
@@ -103,30 +100,6 @@ public class DeliveryDetails {
 	public void setPosted_flag(Boolean posted_flag) {
 		this.posted_flag = posted_flag;
 	}
-	public DeliveryDetails(long id, long header_id, long inventory_id, String code, String name, String desc,
-			Float unit_price, String unit_weight, Date create_date, Date post_date, Boolean posted_flag) {
-		super();
-		this.id = id;
-		this.header_id = header_id;
-		this.inventory_id = inventory_id;
-		this.code = code;
-		this.name = name;
-		this.desc = desc;
-		this.unit_price = unit_price;
-		this.unit_weight = unit_weight;
-		this.create_date = create_date;
-		this.post_date = post_date;
-		this.posted_flag = posted_flag;
-	}
-	@Override
-	public String toString() {
-		return "DeliveryDetails [id=" + id + ", header_id=" + header_id + ", inventory_id=" + inventory_id + ", code="
-				+ code + ", name=" + name + ", desc=" + desc + ", unit_price=" + unit_price + ", unit_weight="
-				+ unit_weight + ", create_date=" + create_date + ", post_date=" + post_date + ", posted_flag="
-				+ posted_flag + "]";
-	}
-    
-    
 
     
     

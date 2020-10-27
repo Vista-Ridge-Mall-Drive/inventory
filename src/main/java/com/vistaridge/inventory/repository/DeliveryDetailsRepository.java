@@ -15,8 +15,10 @@ import com.vistaridge.inventory.entities.DeliveryDetails;
 @Repository
 public interface DeliveryDetailsRepository extends CrudRepository<DeliveryDetails, Long> {
 	
-	@Modifying
-    @Query("select f from DeliveryDetails f where f.inventory_id=:id")
-	ArrayList<DeliveryDetails> getDeliveryDetailsByInventoryId(@Param("id") long inventory_id);
+//	@Modifying
+//    @Query("select f from delivery_details f where f.inventory_id=:id")
+//	ArrayList<DeliveryDetails> getDeliveryDetailsByInventoryId(@Param("id") long inventory_id);
+	
+	ArrayList<DeliveryDetails> findByinventoryId(long inventory_id);
 	
 }
