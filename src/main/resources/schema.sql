@@ -39,6 +39,8 @@ CREATE TABLE delivery_header (
   vendor_name 	VARCHAR(128) NOT NULL,
   receive_date 	DATE,
   user_id		INTEGER      NOT NULL,
+  posted_flag	BOOL,
+  post_date 	DATE,
   PRIMARY KEY (id)
 );
 
@@ -51,5 +53,7 @@ CREATE TABLE delivery_details (
   desc 			VARCHAR(128) NOT NULL,
   unit_price 	FLOAT,
   unit_weight 	VARCHAR(128),
+  posted_flag	BOOL,
+  post_date 	DATE,
   PRIMARY KEY (id)
 );

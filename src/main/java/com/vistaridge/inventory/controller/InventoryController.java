@@ -39,7 +39,7 @@ public class InventoryController {
 	}	
 	
 	@GetMapping("/inventory/{id}")
-	Inventory one(@PathVariable Long id) {
+	Inventory getItem(@PathVariable Long id) {
 		return inventoryRepository.findById(id)
 	    .orElseThrow(() -> new InventoryNotFoundException(id));
 	}	

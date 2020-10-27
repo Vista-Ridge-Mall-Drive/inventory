@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vistaridge.inventory.entities.DeliveryDetails;
-import com.vistaridge.inventory.entities.DeliveryHeader;
 import com.vistaridge.inventory.exception.DeliveryHeaderNotFoundException;
 import com.vistaridge.inventory.repository.DeliveryDetailsRepository;
 import com.vistaridge.inventory.repository.DeliveryHeaderRepository;
@@ -35,7 +34,7 @@ public class DeliveryDetailsController {
 	}	
 	
 	@GetMapping("/deliverydetails/{id}")
-	DeliveryDetails one(@PathVariable Long id) {
+	DeliveryDetails getItem(@PathVariable Long id) {
 		return deliveryDetailsRepository.findById(id)
 	    .orElseThrow(() -> new DeliveryHeaderNotFoundException(id));
 	}	

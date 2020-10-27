@@ -23,6 +23,9 @@ public class DeliveryDetails {
     private Float unit_price;
     private String unit_weight;
     private Date create_date;
+    private Date post_date;
+    private Boolean posted_flag;
+    
 	public long getId() {
 		return id;
 	}
@@ -77,14 +80,21 @@ public class DeliveryDetails {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
-	@Override
-	public String toString() {
-		return "DeliveryDetails [id=" + id + ", header_id=" + header_id + ", inventory_id=" + inventory_id + ", code="
-				+ code + ", name=" + name + ", desc=" + desc + ", unit_price=" + unit_price + ", unit_weight="
-				+ unit_weight + ", create_date=" + create_date + "]";
+	public Date getPost_date() {
+		return post_date;
+	}
+	public void setPost_date(Date post_date) {
+		this.post_date = post_date;
+	}
+	public Boolean getPosted_flag() {
+		return posted_flag;
+	}
+	public void setPosted_flag(Boolean posted_flag) {
+		this.posted_flag = posted_flag;
 	}
 	public DeliveryDetails(long id, long header_id, long inventory_id, String code, String name, String desc,
-			Float unit_price, String unit_weight, Date create_date) {
+			Float unit_price, String unit_weight, Date create_date, Date post_date, Boolean posted_flag) {
+		super();
 		this.id = id;
 		this.header_id = header_id;
 		this.inventory_id = inventory_id;
@@ -94,70 +104,18 @@ public class DeliveryDetails {
 		this.unit_price = unit_price;
 		this.unit_weight = unit_weight;
 		this.create_date = create_date;
+		this.post_date = post_date;
+		this.posted_flag = posted_flag;
 	}
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		result = prime * result + ((create_date == null) ? 0 : create_date.hashCode());
-		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
-		result = prime * result + (int) (header_id ^ (header_id >>> 32));
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + (int) (inventory_id ^ (inventory_id >>> 32));
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((unit_price == null) ? 0 : unit_price.hashCode());
-		result = prime * result + ((unit_weight == null) ? 0 : unit_weight.hashCode());
-		return result;
+	public String toString() {
+		return "DeliveryDetails [id=" + id + ", header_id=" + header_id + ", inventory_id=" + inventory_id + ", code="
+				+ code + ", name=" + name + ", desc=" + desc + ", unit_price=" + unit_price + ", unit_weight="
+				+ unit_weight + ", create_date=" + create_date + ", post_date=" + post_date + ", posted_flag="
+				+ posted_flag + "]";
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DeliveryDetails other = (DeliveryDetails) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
-			return false;
-		if (create_date == null) {
-			if (other.create_date != null)
-				return false;
-		} else if (!create_date.equals(other.create_date))
-			return false;
-		if (desc == null) {
-			if (other.desc != null)
-				return false;
-		} else if (!desc.equals(other.desc))
-			return false;
-		if (header_id != other.header_id)
-			return false;
-		if (id != other.id)
-			return false;
-		if (inventory_id != other.inventory_id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (unit_price == null) {
-			if (other.unit_price != null)
-				return false;
-		} else if (!unit_price.equals(other.unit_price))
-			return false;
-		if (unit_weight == null) {
-			if (other.unit_weight != null)
-				return false;
-		} else if (!unit_weight.equals(other.unit_weight))
-			return false;
-		return true;
-	}
-	
+    
+    
 
     
     

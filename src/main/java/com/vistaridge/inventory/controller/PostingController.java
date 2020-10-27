@@ -1,13 +1,8 @@
 package com.vistaridge.inventory.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vistaridge.inventory.entities.DeliveryHeader;
@@ -17,9 +12,8 @@ import com.vistaridge.inventory.repository.DeliveryHeaderRepository;
 import com.vistaridge.inventory.repository.InventoryRepository;
 
 @RestController
-public class DeliveryHeaderController {
+public class PostingController {
 
-	
 	@Autowired
 	InventoryRepository inventoryRepository;		
 	
@@ -27,27 +21,12 @@ public class DeliveryHeaderController {
 	DeliveryHeaderRepository deliveryHeaderRepository;		
 	
 	@Autowired
-	DeliveryDetailsRepository deliveryDetailsRepository;
+	DeliveryDetailsRepository deliveryDetailsRepository;	
 	
-	@GetMapping("/deliveryheader")
-	List<DeliveryHeader> all() {
-	    return (List<DeliveryHeader>) deliveryHeaderRepository.findAll();
-	}	
-	
-	@GetMapping("/deliveryheader/{id}")
-	DeliveryHeader getItem(@PathVariable Long id) {
+	@GetMapping("/postDeliveryHeader/{id}")
+	DeliveryHeader postDeliveryHeader(@PathVariable Long id) {
 		return deliveryHeaderRepository.findById(id)
 	    .orElseThrow(() -> new DeliveryHeaderNotFoundException(id));
-	}	
-	
-	@PostMapping("/deliveryheader")
-	DeliveryHeader newItem(@RequestBody DeliveryHeader newItem) {
-		return deliveryHeaderRepository.save(newItem);
-	}	
-	
-	@DeleteMapping("/deliveryheader/{id}")
-	void deleteItem(@PathVariable Long id) {
-		deliveryHeaderRepository.deleteById(id);
-	}	
+	}		
 	
 }
