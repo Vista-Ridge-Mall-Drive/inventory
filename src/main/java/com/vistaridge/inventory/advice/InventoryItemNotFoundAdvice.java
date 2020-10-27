@@ -14,7 +14,7 @@ public class InventoryItemNotFoundAdvice {
 	  @ResponseBody
 	  @ExceptionHandler(InventoryNotFoundException.class)
 	  @ResponseStatus(HttpStatus.NOT_FOUND)
-	  String employeeNotFoundHandler(InventoryNotFoundException ex) {
+	  String inventoryItemNotFoundHandler(InventoryNotFoundException ex) {
 	    return ex.getMessage();
 	  }
 }
