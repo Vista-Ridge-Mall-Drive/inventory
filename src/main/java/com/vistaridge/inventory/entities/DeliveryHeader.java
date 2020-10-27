@@ -64,6 +64,9 @@ public class DeliveryHeader {
 	public void setPosted_flag(Boolean posted_flag) {
 		this.posted_flag = posted_flag;
 	}
+	
+	public DeliveryHeader() {}
+	
 	public DeliveryHeader(long id, long vendor_id, String vendor_name, Date receive_date, long user_id, Date post_date,
 			Boolean posted_flag) {
 		super();

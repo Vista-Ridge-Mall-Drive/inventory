@@ -1,5 +1,7 @@
 package com.vistaridge.inventory.controller;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +27,13 @@ public class PostingController {
 	
 	@GetMapping("/postDeliveryHeader/{id}")
 	DeliveryHeader postDeliveryHeader(@PathVariable Long id) {
-		return deliveryHeaderRepository.findById(id)
+		DeliveryHeader item = null;
+		item = deliveryHeaderRepository.findById(id)
 	    .orElseThrow(() -> new DeliveryHeaderNotFoundException(id));
+		if (Objects.isNull(item)) {
+			throw new DeliveryHeaderNotFoundException(id);
+		}
+		return item;
 	}		
 	
 }

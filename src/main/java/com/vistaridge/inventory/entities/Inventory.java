@@ -121,6 +121,25 @@ public class Inventory {
 		this.discontinued = discontinued;
 	}
 
+	
+	
+	public Inventory(long id, String code, String name, String desc, Float unit_price, String unit_weight,
+			Float qty_in_stock, Float reorder_level, Float reorder_time_in_days, Float reorder_qty,
+			Boolean discontinued) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.name = name;
+		this.desc = desc;
+		this.unit_price = unit_price;
+		this.unit_weight = unit_weight;
+		this.qty_in_stock = qty_in_stock;
+		this.reorder_level = reorder_level;
+		this.reorder_time_in_days = reorder_time_in_days;
+		this.reorder_qty = reorder_qty;
+		this.discontinued = discontinued;
+	}
+
 	@Override
 	public String toString() {
 		return "Inventory [id=" + id + ", code=" + code + ", name=" + name + ", desc=" + desc + ", unit_price="

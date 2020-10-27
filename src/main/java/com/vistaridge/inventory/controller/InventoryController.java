@@ -29,23 +29,23 @@ public class InventoryController {
 	}	
 	
 	@PostMapping("/inventory")
-	Inventory newInventoryItem(@RequestBody Inventory newItem) {
+	public Inventory newInventoryItem(@RequestBody Inventory newItem) {
 		return inventoryRepository.save(newItem);
 	}	
 
 	@DeleteMapping("/inventory/{id}")
-	void deleteInventoryItem(@PathVariable Long id) {
+	public void deleteInventoryItem(@PathVariable Long id) {
 		inventoryRepository.deleteById(id);
 	}	
 	
 	@GetMapping("/inventory/{id}")
-	Inventory getItem(@PathVariable Long id) {
+	public Inventory getItem(@PathVariable Long id) {
 		return inventoryRepository.findById(id)
 	    .orElseThrow(() -> new InventoryNotFoundException(id));
 	}	
 	
 	@PutMapping("/inventory/{id}")
-	Inventory replaceInventoryItem(@RequestBody Inventory inventoryItem, @PathVariable Long id) {
+	public Inventory replaceInventoryItem(@RequestBody Inventory inventoryItem, @PathVariable Long id) {
 
 		return inventoryRepository.findById(id)
 	      .map(item -> {

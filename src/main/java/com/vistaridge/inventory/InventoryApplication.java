@@ -1,10 +1,13 @@
 package com.vistaridge.inventory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.slf4j.Logger;
+
+import com.vistaridge.inventory.controller.InventoryController;
 import com.vistaridge.inventory.entities.Inventory;
 import com.vistaridge.inventory.entities.User;
 import com.vistaridge.inventory.repository.InventoryRepository;
@@ -21,6 +24,9 @@ public class InventoryApplication {
 
 	Logger logger = LoggerFactory.getLogger(InventoryApplication.class);
 
+	@Autowired
+	InventoryController inventoryController;
+	
     @Bean
     public CommandLineRunner run(UserRepository userRepository, InventoryRepository inventoryRepository) throws Exception {
         return (String[] args) -> {
@@ -32,6 +38,14 @@ public class InventoryApplication {
           userRepository.findAll().forEach(user -> System.out.println(user.getName()));
           Inventory item1 = new Inventory("MealOne", "Meal One", "Beef noodle");
           inventoryRepository.save(item1);
+          
+          Inventory newItem = new Inventory();
+          newItem.setId(0);
+          newItem.setCode("PadThaiChicken");
+          newItem.setName("Pad Thai Chicken");
+          newItem.setDesc("Pad Thai Chicken");
+          inventoryController.newInventoryItem(newItem);
+
           inventoryRepository.findAll().forEach(item -> System.out.println(item.getName()));
           logger.info("CommandLineRunner run...done");
         };
