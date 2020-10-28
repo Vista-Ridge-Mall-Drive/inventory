@@ -3,14 +3,14 @@ version: 2.0
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:stretch
+      - image: rabbitmq:3.5.4
+      - image: mongo:latest
         env:
           DOCKERHUB_PASSWORD: ${{ secret.DOCKERHUB_PASSWORD }}
         auth:
           username: magnustiberius
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-      - image: rabbitmq:3.5.4
-      - image: mongo:latest
+      - image: circleci/openjdk:stretch
         env:
           DOCKERHUB_PASSWORD: ${{ secret.DOCKERHUB_PASSWORD }}
         auth:
