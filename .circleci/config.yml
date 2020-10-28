@@ -10,7 +10,17 @@ jobs:
           username: magnustiberius
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
       - image: rabbitmq:3.5.4
+        env:
+          DOCKERHUB_PASSWORD: ${{ secret.DOCKERHUB_PASSWORD }}
+        auth:
+          username: magnustiberius
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
       - image: mongo:latest
+        env:
+          DOCKERHUB_PASSWORD: ${{ secret.DOCKERHUB_PASSWORD }}
+        auth:
+          username: magnustiberius
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
         - checkout
         - run: mvn package
