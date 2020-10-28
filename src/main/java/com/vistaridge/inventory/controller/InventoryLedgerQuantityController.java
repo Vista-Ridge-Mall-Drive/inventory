@@ -28,7 +28,7 @@ public class InventoryLedgerQuantityController {
 	@Autowired
 	InventoryLedgerQuantityRepository inventoryLedgerQuantityRepository;
 	
-	@GetMapping("/deliveryheader")
+	@GetMapping("/inventoryledgerqty")
 	List<InventoryLedgerQuantity> all() {
 	    return (List<InventoryLedgerQuantity>) inventoryLedgerQuantityRepository.findAll();
 	}
