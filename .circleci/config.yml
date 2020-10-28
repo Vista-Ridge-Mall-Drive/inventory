@@ -3,6 +3,7 @@ version: 2.0
 jobs:
   build:
     docker:
+      - image: rabbitmq:3.5.4
       - image: circleci/openjdk:stretch
         env:
           DOCKERHUB_PASSWORD: ${{ secret.DOCKERHUB_PASSWORD }}
