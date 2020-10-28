@@ -1,9 +1,12 @@
 package com.vistaridge.inventory;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
@@ -14,6 +17,9 @@ import com.vistaridge.inventory.controller.InventoryController;
 import com.vistaridge.inventory.entities.DeliveryDetails;
 import com.vistaridge.inventory.entities.Inventory;
 import com.vistaridge.inventory.entities.User;
+import com.vistaridge.inventory.rabbitmq.RabbitMqConfig;
+import com.vistaridge.inventory.rabbitmq.RmqRunner;
+import com.vistaridge.inventory.rabbitmq.Receiver;
 import com.vistaridge.inventory.repository.DeliveryDetailsRepository;
 import com.vistaridge.inventory.repository.InventoryRepository;
 import com.vistaridge.inventory.repository.UserRepository;
@@ -35,6 +41,9 @@ public class InventoryApplication {
 	@Autowired
 	DeliveryDetailsRepository deliveryDetailsRepository;
 
+	@Autowired
+	Receiver receiver;
+	
 	@Bean
     public CommandLineRunner run(UserRepository userRepository, InventoryRepository inventoryRepository) throws Exception {
         return (String[] args) -> {
@@ -59,6 +68,12 @@ public class InventoryApplication {
           
           logger.info("getDeliveryDetailsByInventoryId(1)");
           ArrayList<DeliveryDetails> list = deliveryDetailsRepository.findByinventoryId(1);
+          
+          //ApplicationContext ctx = new AnnotationConfigApplicationContext(RabbitMqConfig.class);
+          //RabbitTemplate rabbitTemplate = ctx.getBean(RabbitTemplate.class);
+          //RmqRunner r = new RmqRunner(receiver, rabbitTemplate);
+          //r.run("Hellow");
+          
           logger.info("CommandLineRunner run...done");
         };
     }	
