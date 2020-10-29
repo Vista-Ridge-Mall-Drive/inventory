@@ -8,6 +8,8 @@ Build:
   1. mvn clean package
   2. java -jar .\target\inventory-0.0.1-SNAPSHOT.jar
   
+[![Vista-Ridge-Mall-Drive](https://circleci.com/gh/Vista-Ridge-Mall-Drive/inventory.svg?style=svg)](<LINK>)  
+  
 Target Environment:
   1. Netflix Architecture  
   
